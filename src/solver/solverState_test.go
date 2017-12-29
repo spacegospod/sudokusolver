@@ -16,11 +16,11 @@ func TestNewSolverStateCopiesTheValueOfItsGridArgument(t *testing.T) {
         }
     }
 
-    state := NewSolverState(1, 3, &g)
+    state := NewSolverState(1, 3, 4, &g)
 
     state.Grid[3][3] = grid.EMPTY_VALUE
 
     if state.Grid[3][3] == g[3][3] {
-        t.Errorf("Expected SolverState to have a local copy of the grid")
+        t.Errorf("Expected SolverState to have a copy of the grid")
     }
 }

@@ -8,7 +8,6 @@ func TestSectorContainsWhenSectorContainsValue(t *testing.T) {
 	var val int8
 
 	var res bool
-	var err error
 
 	var grid [9][9]int8
 
@@ -22,14 +21,10 @@ func TestSectorContainsWhenSectorContainsValue(t *testing.T) {
 
 	val = 1
 
-	res, err = sector.Contains(val, grid)
+	res = sector.Contains(val, &grid)
 
 	if !res {
 		t.Errorf("sector->Contains(%d) == %b, want %b", val, false, true)
-	}
-
-	if err != nil {
-		t.Errorf("sector->Contains(%d) throws error but was not supposed to", val)
 	}
 }
 
@@ -39,7 +34,6 @@ func TestSectorContainsWhenSectorDoesNotContainValue(t *testing.T) {
 	var val int8
 
 	var res bool
-	var err error
 
 	var grid [9][9]int8
 
@@ -55,13 +49,9 @@ func TestSectorContainsWhenSectorDoesNotContainValue(t *testing.T) {
 
 	val = 1
 
-	res, err = sector.Contains(val, grid)
+	res = sector.Contains(val, &grid)
 
 	if res {
 		t.Errorf("sector->Contains(%d) == %b, want %b", val, true, false)
-	}
-
-	if err != nil {
-		t.Errorf("sector->Contains(%d) throws error but was not supposed to", val)
 	}
 }
