@@ -27,10 +27,6 @@ func step(state *SolverState) *[9][9]int8 {
         newState := NewSolverState(nextX, nextY, grid.EMPTY_VALUE, &state.Grid)
 
         solution = step(newState)
-        if solution != nil {
-            return solution
-        }
-
         return solution
     }
 
